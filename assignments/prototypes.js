@@ -21,7 +21,7 @@ function GameObject(attributes) {
 }
 
 GameObject.prototype.destroy = function () {
-  console.log(`${this.name} was removed from the game.`)
+  return (`${this.name} was removed from the game.`);
 }
 
 /*
@@ -32,16 +32,16 @@ GameObject.prototype.destroy = function () {
   * should inherit destroy() from GameObject's prototype
 */
 
-function CharacterStats(childAttributes) {
-  GameObject.call(this, childAttributes);
-  this.heathPoints = childAttributes.heathPoints;
-  this.name = childAttributes.name;
+function CharacterStats(charaAttributes) {
+  GameObject.call(this, charaAttributes);
+  this.healthPoints = charaAttributes.healthPoints;
+  this.name = charaAttributes.name;
 }
 
 CharacterStats.prototype = Object.create(GameObject.prototype);
 
 CharacterStats.prototype.takeDamage = function () {
-  console.log(`${this.name} took damage.`)
+  return (`${this.name} took damage.`);
 }
 
 /*
@@ -66,7 +66,7 @@ Humanoid.prototype = Object.create(GameObject.prototype);
 Humanoid.prototype = Object.create(CharacterStats.prototype);
 
 Humanoid.prototype.greet = function () {
-  console.log(`${this.name} offers a greeting in ${this.language}.`)
+  return (`${this.name} offers a greeting in ${this.language}.`);
 }
 
 
